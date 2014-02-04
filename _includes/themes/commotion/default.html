@@ -40,7 +40,7 @@
 <body>
 
 <div class="wrapper">
-
+<header>
 <!-- TOP COLOR BAR -->
     <div class="colorbar">
         <div class="color0"></div>
@@ -70,7 +70,21 @@
       </div>
     </div>
 
-<!-- CONTAINER -->
+<!-- SLIDER, but only on index -->
+
+  {% if index %}
+    <div class="slider">
+        <!-- only show posts tagged "slider" -->
+        {% for post in site.tags.slider %}
+            
+        {% endfor %}
+    </div>
+  {% endif %}
+<!-- END SLIDER -->
+
+</header>
+
+<!-- CONTENT CONTAINER -->
 
     <div class="container">
 
