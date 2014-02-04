@@ -12,6 +12,7 @@ image:
 sitemap:
   priority: 0.7
   changefreq: monthly
+  geoloc: Dharamsala, Himachal Pradesh, India
 ---
 
 Commotion is a free, open-source communication tool that uses mobile phones, computers, and other wireless devices to create decentralized mesh networks. Commotion provides a way for you to share your Internet connection with the people around you, but it is not a replacement for your Internet connection. Read more about how Commotion works on our [Frequently Asked Questions]() page.

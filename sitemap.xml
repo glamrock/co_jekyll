@@ -38,6 +38,11 @@
     {% if page.tags %}
       <news:keywords>Commotion Wireless, {{ page.tags | array_to_sentence_string }}</news:keywords>
     {% endif %}
+    {% if post.sitemap.geoloc %}
+      <geo_locations>{{ post.sitemap.geoloc }}</geo_locations>
+    {% else %}
+      <geo_locations>Washington, DC</geo_locations>
+    {% endif %}
     </news:news>
    </url>
 {% endfor %}
