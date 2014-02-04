@@ -1,9 +1,9 @@
-# This is the default format. 
-# For more see: http://jekyllrb.com/docs/permalinks/
+# https://commotionwireless.net/2014/about.html
 permalink: /:year/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
+pygments: false
+markdown: redcarpet
 
 
 # Pagination - denotes how many items to display on a given page
@@ -70,7 +70,7 @@ JB :
   #
   archive_path: /archive.html
   categories_path : /categories.html
-#  tags_path : /tags.html
+  tags_path : /tags.html
   atom_path : /atom.xml
   rss_path : /rss.xml
 
