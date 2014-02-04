@@ -2,12 +2,17 @@
 layout: page
 permalink: /about/
 title: About Commotion
+description: "Instructions on how to install and customize the Jekyll theme So Simple."
 tags: [commotion wireless, open technology institute, mesh networking, ad-hoc network]
 modified: 2014-01-31
 image:
   feature: houseMesh_0.png
   credit: 
   creditlink: 
+sitemap:
+  lastmod: 2014-01-31
+  priority: 0.7
+  changefreq: monthly
 ---
 
 Commotion is a free, open-source communication tool that uses mobile phones, computers, and other wireless devices to create decentralized mesh networks. Commotion provides a way for you to share your Internet connection with the people around you, but it is not a replacement for your Internet connection. Read more about how Commotion works on our [Frequently Asked Questions]() page.
