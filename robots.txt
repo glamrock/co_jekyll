@@ -1,0 +1,24 @@
+Sitemap: https://commotionwireless.net/sitemap.xml
+
+User-agent: *
+Disallow: /hypnotoad/
+
+# disallow adsense bot - it's not useful
+User-agent: Mediapartners-Google
+Disallow: / 
+
+# Yahoo bot is evil.
+User-agent: Slurp
+Disallow: /
+Allow: /*.html
+
+# Yahoo Pipes is for feeds only, so disallow everything else.
+User-agent: Yahoo Pipes 1.0
+Disallow: /
+Allow: /atom.xml
+Allow: /rss.xml
+
+# Disallow icons for reasons
+User-agent: Googlebot-Image
+Disallow: /images/icons/*
+
