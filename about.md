@@ -10,7 +10,6 @@ image:
   credit: 
   creditlink: 
 sitemap:
-  lastmod: 2014-01-31
   priority: 0.7
   changefreq: monthly
 ---

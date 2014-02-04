@@ -9,14 +9,68 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+{% for page in site.posts %}
   <url>
-    <loc></loc>
-    <lastmod></lastmod>
-    <changefreq></changefreq>
-    <priority></priority>
+    <loc>https://commotionwireless.net{{ page.url }}</loc>
+      {% if post.date %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      {% if post.sitemap.changefreq %}
+        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+      {% else %}
+        <changefreq>monthly</changefreq>
+      {% endif %}
+    {% if post.sitemap.priority %}
+    <priority>{{ post.sitemap.priority }}</priority>
+    {% else %}
+    <priority>0.5</priority>
+    {% endif %}
     <news:news>
-      <news:publication_date></news:publication_date>
-      <news:keywords></news:keywords>
+      <news:publication>
+        <news:name>Open Technology Institute</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:genres>PressRelease, Blog</news:genres>
+      <news:publication_date>{{ post.date | date_to_xmlschema }}</news:publication_date>
+      <news:title>{{ page.title }} | Commotion Wireless</news:title>
+    {% if page.tags %}
+      <news:keywords>Commotion Wireless, {{ page.tags | array_to_sentence_string }}</news:keywords>
+    {% endif %}
     </news:news>
    </url>
+{% endfor %}
+{% for page in site.pages %}
+  <url>
+    <loc>https://commotionwireless.net{{ page.url }}</loc>
+      {% if post.date %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      {% if post.sitemap.changefreq %}
+        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+      {% else %}
+        <changefreq>monthly</changefreq>
+      {% endif %}
+    {% if post.sitemap.priority %}
+    <priority>{{ post.sitemap.priority }}</priority>
+    {% else %}
+    <priority>0.7</priority>
+    {% endif %}
+    <news:news>
+      <news:publication>
+        <news:name>Open Technology Institute</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:genres>PressRelease</news:genres>
+      <news:publication_date>{{ post.date | date_to_xmlschema }}</news:publication_date>
+      <news:title>{{ page.title }} | Commotion Wireless</news:title>
+    {% if page.tags %}
+      <news:keywords>Commotion Wireless, {{ page.tags | array_to_sentence_string }}</news:keywords>
+    {% endif %}
+    </news:news>
+   </url>
+{% endfor %}
 </urlset>
