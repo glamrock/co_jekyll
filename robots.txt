@@ -1,7 +1,12 @@
+Host: commotionwireless.net
 Sitemap: https://commotionwireless.net/sitemap.xml
 
 User-agent: *
 Disallow: /hypnotoad/
+
+# Explicitly allowing Internet Archive
+User-agent: ia_archiver
+Allow: /
 
 # disallow adsense bot - it's not useful
 User-agent: Mediapartners-Google
@@ -22,3 +27,21 @@ Allow: /rss.xml
 User-agent: Googlebot-Image
 Disallow: /images/icons/*
 
+# Disallowing common annoyances
+User-agent: *Nmap*
+Disallow: /
+
+User-agent: *curl*
+Disallow: /
+
+User-agent: *wget*
+Disallow: /
+
+User-agent: Meterpreter*
+Disallow: /
+
+User-agent: *httrack*
+Disallow: /
+
+User-agent: *HTTrack*
+Disallow: /
