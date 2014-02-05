@@ -93,6 +93,32 @@
   {% endif %}
 <!-- END SLIDER -->
 
+<!-- FEATURED IMAGE/VIDEO/MAP/TITLE, not on index -->
+    {% if post.feature %}
+      <div class="feature">
+        <img src="{{ post.feature }}" />
+      </div>
+    {% elsif post.map %}
+      <div class="map"">
+        <iframe src="{{ post.map }}" height="{{ post.map.height }}" width="{{ post.map.width }} frameborder="0" background="transparent" />
+      </div>
+    {% elsif post.video %}
+      <div class="video"">
+        <video height="{{ post.video.height }}" width="{{ post.video.width }}" controls>
+          {% if post.video.mp4 %}<source src="{{ post.video.mp4 }}" type="video/mp4">{% endif %}
+          {% if post.video.ogg %}<source src="{{ post.video.ogg }}" type="video/ogg">{% endif %}
+          {% if post.video.subtitles %}<track src="{{post.video.subtitles}}" kind="subtitles" label="Captions"> {% endif %}
+        Your browser does not support the video tag. Upgrade!
+        </video>
+        <div class="videocaption">{{ post.video.caption }}</div>
+        <h1>{{page.title}}</h1>
+      </div>
+    {% else %}
+      <div class="pagetitle">
+        <h1>{{page.title}}</h1>
+      </div>
+    {% endif %}
+<!-- END FEATURED IMAGE -->
 </header>
 
 <!-- CONTENT CONTAINER -->
