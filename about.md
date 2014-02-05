@@ -5,10 +5,8 @@ title: About Commotion
 description: "Commotion is a free, open-source communication tool that uses mobile phones, computers, and other wireless devices to create decentralized mesh networks."
 tags: [commotion wireless, open technology institute, mesh networking, ad-hoc network]
 modified: 2014-01-31
-image:
-  feature: houseMesh_0.png
-  credit: 
-  creditlink: 
+feature: http://commotionwireless.net/images/houseMesh_0.png
+feature-caption: ""
 sitemap:
   priority: 0.7
   changefreq: monthly

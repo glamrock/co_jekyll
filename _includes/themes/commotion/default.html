@@ -5,7 +5,7 @@
   <title>{{ site.name }}{% if page.title %} | {{ page.title }} {% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Detects if there's a defined page description, includes it if so, and otherwise includes the first 160 characters of the content. We could do categories instead, or use truncatewords:30 and probably still be within character limit -->
+<!-- Detects if there's a defined page description, includes it if so, and otherwise includes the first 160 characters of the page content. We could do categories instead, or use truncatewords:30 and probably still be within character limit -->
     <meta name="description" content="
     {% if page.description %}{{ page.description }}
     {% elsif post.content %}{{ post.content | strip_html | truncate:160}}
@@ -73,11 +73,22 @@
 <!-- SLIDER, but only on index -->
 
   {% if index %}
-    <div class="slider">
-        <!-- only show posts tagged "slider" -->
-        {% for post in site.tags.slider %}
-            
+    <div class="slidercase">
+      <ul class="slider">
+        <!-- only show 5 most recent posts tagged "slider" -->
+        {% for page in site.tags.slider limit:5 %}
+            <!-- SETTING FEATURED IMAGE TO SLIDER BG -->
+            <li style="background: #000 {% if post.feature %} cover url({{ post.feature }}{% endif %})">
+                <!-- POST TITLE -->
+                <h3><a href="{{ site.baseurl }}{{ post.url }}" target="_top">{{ post.title }}</a></h3>
+                <!-- POST DESCRIPTION -->
+                <h4>{% if page.description %}{{ page.description }}
+    {% elsif post.content %}{{ post.content | strip_html | truncatewords:30}}...
+    {% endif %}</h4>
+                <!-- STILL NEED SLIDE SELECTOR AND NEXT/PREV BUTTONS -->
+            </li>
         {% endfor %}
+      </ul>
     </div>
   {% endif %}
 <!-- END SLIDER -->
