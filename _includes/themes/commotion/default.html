@@ -71,12 +71,12 @@
     </div>
 
 <!-- SLIDER, but only on index -->
-
+<!-- OPTION ONE - UNFINISHED! -->
   {% if index %}
     <div class="slidercase">
       <ul class="slider">
         <!-- only show 5 most recent posts tagged "slider" -->
-        {% for page in site.tags.slider limit:5 %}
+        {% for post in site.tags.slider limit:5 %}
             <!-- SETTING FEATURED IMAGE TO SLIDER BG -->
             <li style="background: #000 {% if post.feature %} cover url({{ post.feature }}{% endif %})">
                 <!-- POST TITLE -->
@@ -92,6 +92,42 @@
     </div>
   {% endif %}
 <!-- END SLIDER -->
+
+<!-- SLIDER, but only on index -->
+<!-- OPTION TWO - UNFINISHED! -->
+
+  {% if index %}
+    <div class="slidercase">
+          
+        {% assign count = '0' %}
+        {% assign idx = '0' %}
+        {% for post in site.posts %}
+	        {% if post.slider == slider %}
+		        {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+		        {% if post.url == page.url %}
+			        {% capture idx %}{{count}}{% endcapture %}
+		        {% endif %}
+	        {% endif %}
+        {% endfor %}
+
+    <!-- THIS IS ITERATING TWICE ON PURPOSE. TRUST ME, I'M AN INTERNET DOCTOR. -->
+	    <ul>
+	    {% assign count = '0' %}
+	    {% for post in site.posts %}
+	    {% if post.slider == slider %}
+		    {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+                <h3><a href="{{ site.baseurl }}{{ post.url }}" target="_top">{{ post.title }}</a></h3>
+                <!-- POST DESCRIPTION -->
+                <h4>{% if page.description %}{{ page.description }}
+                {% elsif post.content %}
+                {{ post.content | strip_html | truncatewords:30}}...
+                {% endif %}</h4>
+	    {% endif %}
+	    {% endfor %}
+	    </ul>
+    </div>
+  {% endif %} <!-- ends the "if index" above -->
+<!-- END SLIDER 2 -->
 
 <!-- FEATURED IMAGE/VIDEO/MAP/TITLE, not on index -->
     {% if post.feature %}
