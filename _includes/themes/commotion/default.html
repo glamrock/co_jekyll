@@ -101,7 +101,7 @@
           
         {% assign count = '0' %}
         {% assign idx = '0' %}
-        {% for post in site.posts %}
+        {% for post in site.posts limit:5 %}
 	        {% if post.slider == slider %}
 		        {% capture count %}{{ count | plus: '1' }}{% endcapture %}
 		        {% if post.url == page.url %}
@@ -113,7 +113,7 @@
     <!-- THIS IS ITERATING TWICE ON PURPOSE. TRUST ME, I'M AN INTERNET DOCTOR. -->
 	    <ul>
 	    {% assign count = '0' %}
-	    {% for post in site.posts %}
+	    {% for post in site.posts limit:5 %}
 	    {% if post.slider == slider %}
 		    {% capture count %}{{ count | plus: '1' }}{% endcapture %}
                 <h3><a href="{{ site.baseurl }}{{ post.url }}" target="_top">{{ post.title }}</a></h3>
