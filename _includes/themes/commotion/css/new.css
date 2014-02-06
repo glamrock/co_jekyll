@@ -1,6 +1,9 @@
-body {
+html {
     
+}
 
+body {
+    background: #ffffff;
 }
 
 .wrapper {
@@ -14,8 +17,7 @@ body {
     height: 20px;
     margin: 0;
     width: 100%;
-    background-color: #877AED;
-    float:left;
+    clear: both;
 }
 .color0 {
     background-color: #FE739B;
@@ -40,6 +42,7 @@ body {
 .color4 {
     width: 5%;
     float: left;
+    background-color: #877AED;
 }
 
 /* Arrow divider */
