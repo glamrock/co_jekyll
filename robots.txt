@@ -1,6 +1,10 @@
 Host: commotionwireless.net
 Sitemap: https://commotionwireless.net/sitemap.xml
 
+# Define seconds between fetching pages (good for preventing maliciousness false-positives)
+User-agent: *
+Crawl-delay: 60
+
 User-agent: *
 Disallow: /hypnotoad/
 
